@@ -20,10 +20,10 @@ def ejecutar_script():
     }
 
     # Ruta del archivo de consulta SQL
-    sql_file = 'querys/query_inciso_1.sql'
+    sql_file = 'querys/query_inciso_2.sql'
 
     # Nombre de la tabla destino
-    destination_table = 'resultado_query_insiso_1'
+    destination_table = 'test_query_inciso_2'
 
     # Ruta del archivo de registro
     log_file = 'logs/logs_scripts.log'

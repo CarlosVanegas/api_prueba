@@ -675,3 +675,498 @@ ORDER BY
     DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
     st.Name ASC; completada correctamente a las 2024-03-16 12:54:03.442833
 INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 12:54:03] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: Not all parameters were used in the SQL statement
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: Not all parameters were used in the SQL statement
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 12:55:51] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: Not all parameters were used in the SQL statement
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 12:56:02] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: Unread result found
+ERROR:root:Error al ejecutar la consulta: Unread result found
+ERROR:root:Error al ejecutar la consulta: Unread result found
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:04:14] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:04:56] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:10:16.604770
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:12:31.257060
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:14:23.799598
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:14:57] "GET /ejecutar-script HTTP/1.1" 200 -
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:15:05.952256
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:15:08.130511
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:15:08] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:16:15] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:22:00] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:22:02] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:24:20] "GET /ejecutar-script HTTP/1.1" 200 -
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1146 (42S02): Table 'database_clients_bam.test_resultado_query_insiso_1' doesn't exist
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1146 (42S02): Table 'database_clients_bam.test_resultado_query_insiso_1' doesn't exist
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Tabla test_resultado_query_insiso_1 creada correctamente
+ERROR:root:Error al ejecutar la consulta: 1146 (42S02): Table 'database_clients_bam.test_resultado_query_insiso_1' doesn't exist
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '253, NombreTerritorio 253, TrProceso 246, TrAprobadas 246, TrAtrasadas 246, TrRe' at line 1
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:Error al ejecutar la consulta: Unread result found
+ERROR:root:Error al ejecutar la consulta: Unread result found
+INFO:root:Tabla test_resultado_query_insiso_1 creada correctamente
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:57:21.367937
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:57:39.183009
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO test_resultado_query_insiso_1 VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:57:46.891543
+INFO:werkzeug:127.0.0.1 - - [16/Mar/2024 13:57:46] "GET /ejecutar-script HTTP/1.1" 200 -
+INFO:root:Tabla test_jami_jamileeee creada correctamente
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Australia',3,2,10,3,6801,24,4325.1911,146.8988,13666.5628,1318.7623,11758854.8003,36063.8799)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Canada',2,3,7,1,4034,20,2696.1559,34.5313,3089.3371,40.8408,17743509.5102,649558.8127)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Central',0,0,0,0,376,9,0.0000,0.0000,0.0000,0.0000,8601632.7486,311666.4987)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','France',2,1,4,1,2653,11,50.0234,2709.8357,6847.7957,32.5754,8030865.9179,79243.1979)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Germany',1,2,8,0,2600,12,2778.9977,3175.4938,7871.7993,0.0000,5458283.8860,7709.3987)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Northeast',0,0,0,0,344,8,0.0000,0.0000,0.0000,0.0000,7523194.1894,297015.4391)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Northwest',2,3,9,2,4554,24,82.8308,175.0541,7083.6800,1276.7944,17717754.3506,335287.6611)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Southeast',0,0,0,0,477,9,0.0000,0.0000,0.0000,0.0000,8689941.3113,194158.0556)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','Southwest',4,5,9,3,6154,49,2010.7686,8028.0793,10774.4686,2691.6806,26511740.5484,615349.0438)
+INFO:root:Inserción realizada: INSERT INTO test_jami_jamileeee VALUES ('2024-03','United Kingdom',1,3,4,2,3202,7,635.3529,89.4277,2641.9335,1328.6962,8447102.8272,122250.4707)
+INFO:root:Ejecución de la consulta SELECT
+    DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+    st.Name AS NombreTerritorio,
+    SUM(CASE WHEN so.Status = 1 THEN 1 ELSE 0 END) AS TrProceso,
+    SUM(CASE WHEN so.Status = 2 THEN 1 ELSE 0 END) AS TrAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN 1 ELSE 0 END) AS TrAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN 1 ELSE 0 END) AS TrRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN 1 ELSE 0 END) AS TrEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN 1 ELSE 0 END) AS TrCanceladas,
+    SUM(CASE WHEN so.Status = 1 THEN so.TotalDue ELSE 0 END) AS MntProceso,
+    SUM(CASE WHEN so.Status = 2 THEN so.TotalDue ELSE 0 END) AS MntAprobadas,
+    SUM(CASE WHEN so.Status = 3 THEN so.TotalDue ELSE 0 END) AS MntAtrasadas,
+    SUM(CASE WHEN so.Status = 4 THEN so.TotalDue ELSE 0 END) AS MntRechazadas,
+    SUM(CASE WHEN so.Status = 5 THEN so.TotalDue ELSE 0 END) AS MntEnviadas,
+    SUM(CASE WHEN so.Status = 6 THEN so.TotalDue ELSE 0 END) AS MntCanceladas
+FROM
+    database_clients_bam.salesorderheader so
+INNER JOIN
+    database_clients_bam.salesterritory st ON so.TerritoryID = st.TerritoryID
+GROUP BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m'),
+    st.Name
+ORDER BY
+    DATE_FORMAT(so.OrderDate, '%Y-%m') ASC,
+    st.Name ASC; completada correctamente a las 2024-03-16 13:58:40.805730
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Tabla test_query_inciso_2 creada correctamente
+INFO:root:Inserción realizada: INSERT INTO test_query_inciso_2 VALUES ('2024-03','AWC Logo Cap','Water Bottle - 30 oz.','Sport-100 Helmet, Blue','Roger Harui','Andrew Dixon','Robert Vessa')
+INFO:root:Ejecución de la consulta  WITH TopProducts AS (
+    SELECT
+        DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+        p.Name AS Producto,
+        SUM(sd.OrderQty) AS UnidadesDespachadas,
+        ROW_NUMBER() OVER (PARTITION BY DATE_FORMAT(so.OrderDate, '%Y-%m') ORDER BY SUM(sd.OrderQty) DESC) AS Ranking
+    FROM
+        database_clients_bam.salesorderheader so
+    INNER JOIN
+        database_clients_bam.salesorderdetail sd ON so.SalesOrderID = sd.SalesOrderID
+    INNER JOIN
+        database_clients_bam.product p ON sd.ProductID = p.ProductID
+    WHERE
+        so.Status = 5 -- Considera solo Ã³rdenes despachadas
+    GROUP BY
+        DATE_FORMAT(so.OrderDate, '%Y-%m'),
+        p.Name
+),
+TopCustomers AS (
+    SELECT
+        DATE_FORMAT(so.OrderDate, '%Y-%m') AS Mes,
+        CONCAT(p.FirstName, ' ', p.LastName) AS Cliente,
+        SUM(so.TotalDue) AS MontoTotalFacturado,
+        ROW_NUMBER() OVER (PARTITION BY DATE_FORMAT(so.OrderDate, '%Y-%m') ORDER BY SUM(so.TotalDue) DESC) AS Ranking
+    FROM
+        database_clients_bam.salesorderheader so
+    INNER JOIN
+        database_clients_bam.customer c ON so.CustomerID = c.CustomerID
+    INNER JOIN
+        database_clients_bam.person p ON c.PersonID = p.BusinessEntityID
+    WHERE
+        so.Status = 5 -- Considera solo Ã³rdenes despachadas
+    GROUP BY
+        DATE_FORMAT(so.OrderDate, '%Y-%m'),
+        p.FirstName,
+        p.LastName
+)
+SELECT
+    tp.Mes,
+    MAX(CASE WHEN tp.Ranking = 1 THEN tp.Producto END) AS Producto_N1,
+    MAX(CASE WHEN tp.Ranking = 2 THEN tp.Producto END) AS Producto_N2,
+    MAX(CASE WHEN tp.Ranking = 3 THEN tp.Producto END) AS Producto_N3,
+    MAX(CASE WHEN tc.Ranking = 1 THEN tc.Cliente END) AS Cliente_N1,
+    MAX(CASE WHEN tc.Ranking = 2 THEN tc.Cliente END) AS Cliente_N2,
+    MAX(CASE WHEN tc.Ranking = 3 THEN tc.Cliente END) AS Cliente_N3
+FROM
+    TopProducts tp
+LEFT JOIN
+    TopCustomers tc ON tp.Mes = tc.Mes
+GROUP BY
+    tp.Mes;
+ completada correctamente a las 2024-03-16 14:02:55.625576
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m

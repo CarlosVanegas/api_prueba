@@ -11,7 +11,27 @@ def execute_sql_query(db_connection, sql_query, destination_table, log_file):
         connection = mysql.connector.connect(**db_connection)
         cursor = connection.cursor()
 
-        # Ejecución de la consulta SQL
+        # Verificar si la tabla de destino ya existe
+        cursor.execute(f"SHOW TABLES LIKE '{destination_table}'")
+        table_exists = cursor.fetchone() is not None
+
+        # Si la tabla no existe, crearla
+        if not table_exists:
+            # Ejecución de la consulta SQL para crear la tabla con base en el resultado de la consulta
+            create_table_query = f"CREATE TABLE IF NOT EXISTS {destination_table} AS {sql_query}"
+
+            # Crear la tabla con base en el resultado de la consulta
+            cursor.execute(create_table_query)
+            connection.commit()
+
+            # Consumir todos los resultados del cursor de la consulta anterior
+            for _ in cursor:
+                pass
+
+            # Registro en el archivo de log
+            logging.info(f"Tabla {destination_table} creada correctamente")
+
+        # Ejecutar la consulta SQL
         cursor.execute(sql_query)
 
         # Guardar los resultados en la tabla destino

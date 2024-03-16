@@ -1,10 +1,14 @@
+from decimal import Decimal
+from concurrent.futures import ThreadPoolExecutor
 import boto3
 import pandas as pd
-from decimal import Decimal
-from botocore.exceptions import ClientError
-from pandas.errors import EmptyDataError
 
-def upload_data_to_dynamodb(table_name, csv_file_path):
+def upload_batch_to_dynamodb(table, data):
+    with table.batch_writer() as batch:
+        for item in data:
+            batch.put_item(Item=item)
+
+def upload_data_to_dynamodb(table_name, csv_file_path, batch_size=100):
     try:
         dynamodb = boto3.resource('dynamodb')
         table = dynamodb.Table(table_name)
@@ -13,40 +17,25 @@ def upload_data_to_dynamodb(table_name, csv_file_path):
         if df.empty:
             return {"status": "error", "message": "El archivo CSV está vacío."}
 
-        df.drop_duplicates(inplace=True)
-
-        # Asegurar que unique_id sea verdaderamente único para cada fila, incluso entre cargas de datos
-        # Aquí se asume que puedes generar un unique_id único de alguna manera
-        # Si tus datos ya incluyen un identificador único, utiliza ese campo directamente
+        # Asegurar que unique_id sea verdaderamente único para cada fila
         df['unique_id'] = pd.util.hash_pandas_object(df, index=True).astype(str)
 
-        # Verificar duplicados
-        seen = set()
-        unique_data = []
-        for index, row in df.iterrows():
-            if row['unique_id'] not in seen:
-                seen.add(row['unique_id'])
-                unique_data.append(row)
-            else:
-                print(f"Duplicado encontrado para unique_id: {row['unique_id']}")
+        # Dividir el DataFrame en lotes más pequeños para procesamiento en paralelo
+        batches = [df[i:i+batch_size] for i in range(0, df.shape[0], batch_size)]
 
-        for item in unique_data:
-            for key, value in item.items():
-                if isinstance(value, float):
-                    item[key] = Decimal(str(value))
-
-            # Aquí se asume que unique_id es la clave principal (Partition Key)
-            item_to_put = {'unique_id': item['unique_id']}
-            for key, value in item.items():
-                if key != 'unique_id':  # No incluir unique_id si ya se ha usado como clave principal
-                    item_to_put[key] = value
-            table.put_item(Item=item_to_put)
+        with ThreadPoolExecutor() as executor:
+            for batch_df in batches:
+                batch_data = []
+                for _, row in batch_df.iterrows():
+                    item = {'unique_id': row['unique_id']}
+                    for key, value in row.items():
+                        if isinstance(value, float):
+                            value = Decimal(str(value))
+                        item[key] = value
+                    batch_data.append(item)
+                executor.submit(upload_batch_to_dynamodb, table, batch_data)
 
         return {"status": "success", "message": "Datos subidos correctamente a DynamoDB."}
 
-    except EmptyDataError as e:
-        return {"status": "error", "message": f"Error al leer el archivo CSV: {e}"}
-    except ClientError as e:
-        return {"status": "error", "message": f"Error al subir datos a DynamoDB: {e}"}
     except Exception as e:
         return {"status": "error", "message": f"Error desconocido: {e}"}

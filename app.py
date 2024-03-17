@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from scripts.sql_script import execute_sql_query
 from scripts.script_enviar_datos_nube import upload_data_to_dynamodb
 import mysql.connector
@@ -16,18 +16,69 @@ db_connection = {
 }
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return render_template('index.html')
+
+
+@app.route('/resumen_territorial')
+def obtener_resultados():
+    # Conectar a la base de datos
+    cnx = mysql.connector.connect(**db_connection)
+    cursor = cnx.cursor(dictionary=True)
+
+    # Ejecutar la consulta SQL
+    cursor.execute('SELECT * FROM resultado_query_insiso_1')
+
+    # Convertir el resultado en una lista de diccionarios
+    resultados = cursor.fetchall()
+
+    # No olvides cerrar el cursor y la conexión
+    cursor.close()
+    cnx.close()
+
+    # Devolver los resultados como JSON
+    return jsonify(resultados)\
+
+
+@app.route('/resumen_mensual')
+def obtener_resultados_resumen_mensual():
+    # Conectar a la base de datos
+    cnx = mysql.connector.connect(**db_connection)
+    cursor = cnx.cursor(dictionary=True)
+
+    # Verificar si la tabla existe
+    cursor.execute("SHOW TABLES LIKE 'resultado_query_insiso_2'")
+    resultado = cursor.fetchone()
+
+    if resultado:
+        # Ejecutar la consulta SQL
+        cursor.execute('SELECT * FROM resultado_query_insiso_2')
+
+        # Convertir el resultado en una lista de diccionarios
+        resultados = cursor.fetchall()
+
+        # Cerrar el cursor y la conexión
+        cursor.close()
+        cnx.close()
+
+        # Devolver los resultados como JSON
+        return jsonify(resultados)
+    else:
+        cursor.close()
+        cnx.close()
+        # Aquí, en lugar de mostrar un alerta, devolvemos un mensaje indicando la acción necesaria
+        return jsonify({"error": "La tabla no existe. Ejecuta el script para crearla."})
+
 
 @app.route('/ejecutar-script')
 def ejecutar_script():
     # Parámetros para ejecutar el script
 
     # Ruta del archivo de consulta SQL
-    sql_file = 'querys/query_inciso_1.sql'
+    sql_file = 'querys/query_inciso_2.sql'
 
     # Nombre de la tabla destino
-    destination_table = 'test_query_inciso_1'
+    destination_table = 'resultado_query_insiso_2'
 
     # Ruta del archivo de registro
     log_file = 'logs/logs_scripts.log'

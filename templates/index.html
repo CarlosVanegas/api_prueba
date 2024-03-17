@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+       <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bootstrap/css/style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <link href="{{ url_for('static', filename='bootstrap/fontawesome/all.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='bootstrap/fontawesome/all.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<header class="main-sidebar">
+    <div class="main-sidebar-inside">
+        <div class="main-sidebar-links">
+            <div class="main-sidebar-logo">
+                <h1 class="logo">
+                    <span  class="large-screen-logo">
+                        Clientes
+                    </span>
+                </h1>
+                <div class="collapse-arrows">
+                    <svg
+                        class="dropdown-arrow"
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="-122.9 121.1 105.9 61.9"
+                        enable-background="new -122.9 121.1 105.9 61.9"
+                        xml:space="preserve"
+                    >
+                        <path
+                            d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+	c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+	C-73.5,183.9-66.8,183.9-63.2,180.3z"
+                        />
+                    </svg>
+                    <svg
+                        class="dropdown-arrow"
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="-122.9 121.1 105.9 61.9"
+                        enable-background="new -122.9 121.1 105.9 61.9"
+                        xml:space="preserve"
+                    >
+                        <path
+                            d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+	c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+	C-73.5,183.9-66.8,183.9-63.2,180.3z"
+                        />
+                    </svg>
+                </div>
+            </div>
+            <h4 class="main-menu-create">API</h4>
+            <ul class="main-sidebar-list">
+                <li class="create-pen">
+                    <span  id="link-clientes"  onclick="showPanel('panel-clientes');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                          <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+                          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        </svg>
+                        Buscar clientes
+                    </span>
+                </li>
+                <li>
+                    <span id="resumen-territorial" onclick="showPanel('panel-project');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                              <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/>
+                              <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+                              <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+                            </svg>
+                        Res. Territorial
+                    </span>
+                </li>
+                <li>
+                        <span id="resumen-mensual"  onclick="showPanel('panel-link');">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                        Res. Mensual
+                    </span>
+                </li>
+            </ul>
+            <h4 class="main-menu-your">Documentación</h4>
+            <ul class="main-sidebar-list">
+                <li><span id="documentation"  onclick="showPanel('panel-documentation');" >Scripts SQL</span></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="" class="your-pins">Pins</a></li>
+                <li><a href="">Activity</a></li>
+            </ul>
+            <h4 class="main-menu-explore">Explore</h4>
+            <ul class="main-sidebar-list">
+                <li><a href="">Pens</a></li>
+                <li><a href="">Projects</a></li>
+                <li><a href="">Posts</a></li>
+                <li><a href="">Collections</a></li>
+            </ul>
+            <ul class="main-sidebar-list sub-nav">
+                <li><a href="">Spark</a></li>
+                <li><a href="">Jobs</a></li>
+                <li><a href="">Challenges</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Documentation</a></li>
+                <li><a href="">Support</a></li>
+            </ul>
+        </div>
+        <div id="user-header-dropdown" class="user-stuff header-chunk" data-dropdown="#user-dropdown">
+            <img id="mini-personal-avatar" src="https://gravatar.com/avatar/d18bc2d5ba01bf8a7069f7847f20cd4e?s=80" width="32" height="32" class="user-avatar" alt="User Avatar" />
+            <span class="user-stuff-username">Klare</span>
+            <div class="dropdown-arrows">
+                <svg
+                    class="dropdown-arrow dropdown-arrow-up"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="-122.9 121.1 105.9 61.9"
+                    enable-background="new -122.9 121.1 105.9 61.9"
+                    xml:space="preserve"
+                >
+                    <path
+                        d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+	c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+	C-73.5,183.9-66.8,183.9-63.2,180.3z"
+                    />
+                </svg>
+                <svg
+                    class="dropdown-arrow dropdown-arrow-down"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="-122.9 121.1 105.9 61.9"
+                    enable-background="new -122.9 121.1 105.9 61.9"
+                    xml:space="preserve"
+                >
+                    <path
+                        d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+	c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+	C-73.5,183.9-66.8,183.9-63.2,180.3z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="content-wrap">
+    <div id="panel-clientes" class="panel" >
+        <h2 >BUSCAR CLIENTE POR ID</h2>
+        <div id="search-section" class="col-md-4">
+            <input class="form-control" type="number" id="customerIdInput" placeholder="Ingrese ID del cliente">
+            <button id="searchButton"class="btn btn-primary">Buscar Cliente</button>
+        </div>
+        <div id="resultSection"></div>
+    </div>
+    <div id="panel-project" class="panel" style="display:none;">
+        <canvas id="graficaResultados"></canvas>
+    </div>
+    <div id="panel-link" class="panel" style="display:none;">
+        <canvas id="graficaResumenMensual"></canvas>
+    </div>
+
+    <div id="panel-documentation" class="panel" style="display:none;">
+
+        <h1>Ejemplo de código SQL</h1>
+        <pre>
+        <code>
+        CREATE TABLE clientes (
+            id INT PRIMARY KEY,
+            nombre VARCHAR(50),
+            apellido VARCHAR(50),
+            edad INT
+        );
+
+        SELECT * FROM clientes;
+        </code>
+        </pre>
+    </div>
+</div>
+</div>
+<script>
+function showPanel(panelId) {
+    // Ocultar todos los paneles
+     var panels = document.querySelectorAll('.panel');
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].style.display = 'none';
+        console.log(panels[i]);
+    }
+
+    console.log(panelId);
+    // Mostrar el panel seleccionado
+    document.getElementById(panelId).style.display = 'block';
+}
+
+
+
+</script>
+
+<script>
+document.getElementById('searchButton').addEventListener('click', function() {
+    var customerId = document.getElementById('customerIdInput').value;
+    if (!customerId) {
+        alert('Por favor, ingrese el ID del cliente.');
+        return;
+    }
+
+    fetch(`http://127.0.0.1:5000/customer?customerId=${customerId}`)
+    .then(response => response.json())
+    .then(data => {
+        displayResult(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al realizar la búsqueda.');
+    });
+});
+
+function displayResult(data) {
+    var resultSection = document.getElementById('resultSection');
+
+    // Transformar el contenido XML de Demographics en texto plano para visualización simplificada
+    var parser = new DOMParser();
+    var xmlDoc = parser.parseFromString(data.Demographics,"text/xml");
+    var demographicsText = new XMLSerializer().serializeToString(xmlDoc.documentElement);
+    demographicsText = demographicsText.replace(/<[^>]*>?/gm, ''); // Remover etiquetas XML
+
+    resultSection.innerHTML = `
+        <table border="1" class="table">
+            <tr>
+                <th scope="col">Field</th>
+                <th scope="col" >Value</th>
+            </tr>
+            <tr><td>Account Number</td><td>${data.AccountNumber}</td></tr>
+            <tr><td>Business Entity ID</td><td>${data.BusinessEntityID}</td></tr>
+            <tr><td>Customer ID</td><td>${data.CustomerID}</td></tr>
+            <tr><td>Email Promotion</td><td>${data.EmailPromotion}</td></tr>
+            <tr><td>First Name</td><td>${data.FirstName}</td></tr>
+            <tr><td>Last Name</td><td>${data.LastName}</td></tr>
+            <tr><td>Middle Name</td><td>${data.MiddleName || 'N/A'}</td></tr>
+            <tr><td>Name Style</td><td>${data.NameStyle}</td></tr>
+            <tr><td>Person Type</td><td>${data.PersonType}</td></tr>
+            <tr><td>Store ID</td><td>${data.StoreID || 'N/A'}</td></tr>
+            <tr><td>Suffix</td><td>${data.Suffix || 'N/A'}</td></tr>
+            <tr><td>Territory ID</td><td>${data.TerritoryID}</td></tr>
+            <tr><td>Title</td><td>${data.Title || 'N/A'}</td></tr>
+            <tr><td>Demographics (simplified)</td><td>${demographicsText}</td></tr>
+        </table>
+    `;
+}
+
+
+document.getElementById('resumen-territorial').addEventListener('click', function() {
+    cargarDatosYMostrarGrafica();
+});
+
+function cargarDatosYMostrarGrafica() {
+    fetch('http://127.0.0.1:5000/resumen_territorial')
+    .then(response => response.json())
+    .then(datos => {
+        const ctx = document.getElementById('graficaResultados').getContext('2d');
+        const nombresTerritorios = datos.map(d => d.NombreTerritorio);
+        const montosEnviados = datos.map(d => parseFloat(d.MntEnviadas));
+
+        const coloresFondo = montosEnviados.map(() => `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.2)`);
+        const coloresBorde = coloresFondo.map(color => color.replace('0.2', '1'));
+
+        const grafica = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: nombresTerritorios,
+                datasets: [{
+                    label: 'Monto Enviado',
+                    data: montosEnviados,
+                    backgroundColor: coloresFondo,
+                    borderColor: coloresBorde,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Montos Enviados por Territorio / Gráfica de rsultados de Inciso 1:'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 1500
+                }
+            }
+        });
+    })
+    .catch(error => console.error('Error al cargar los datos:', error));
+}
+
+
+document.getElementById('resumen-mensual').addEventListener('click', function() {
+    cargarDatosYMostrarGraficaMensual();
+});
+
+function cargarDatosYMostrarGraficaMensual() {
+    // Asegúrate de que el panel donde se mostrará la gráfica esté visible
+    fetch('http://127.0.0.1:5000/resumen_mensual')
+    .then(response => response.json())
+    .then(datos => {
+        console.log(datos);
+        // Asumiendo que los datos incluyen nombres de territorios y montos, ajusta según tus datos
+        const ctx = document.getElementById('graficaResumenMensual').getContext('2d');
+        const labels = datos.map(item => item.NombreTerritorio);
+        const dataMontos = datos.map(item => item.MntEnviadas); // Ajusta según el nombre real de tu propiedad
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Monto Enviado',
+                    data: dataMontos,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Resumen Mensual por Territorio'
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error al cargar los datos:', error);
+    });
+}
+
+</script>
+
+
+</html>

@@ -19,7 +19,6 @@ db_connection = {
 def index():
     return render_template('index.html')
 
-
 @app.route('/resumen_territorial')
 def obtener_resultados():
     # Conectar a la base de datos
@@ -38,7 +37,6 @@ def obtener_resultados():
 
     # Devolver los resultados como JSON
     return jsonify(resultados)\
-
 
 @app.route('/resumen_mensual')
 def obtener_resultados_resumen_mensual():
@@ -69,11 +67,9 @@ def obtener_resultados_resumen_mensual():
         # Aquí, en lugar de mostrar un alerta, devolvemos un mensaje indicando la acción necesaria
         return jsonify({"error": "La tabla no existe. Ejecuta el script para crearla."})
 
-
 @app.route('/ejecutar-script')
 def ejecutar_script():
-    # Parámetros para ejecutar el script
-
+    # Parámetros para ejecutar el script sql_file y destination_table
     # Ruta del archivo de consulta SQL
     sql_file = 'querys/query_inciso_2.sql'
 
@@ -87,13 +83,10 @@ def ejecutar_script():
     with open(sql_file, 'r') as file:
         sql_query = file.read()
 
-    # Ejecutar el script
+    # Ejecutar el script, la funcion se llama execute_sql_query
     message = execute_sql_query(db_connection, sql_query, destination_table, log_file)
 
     return json.dumps({"message": message})
-
-# Probando la función ejecutar_script
-# print(ejecutar_script())
 
 @app.route('/subir')
 def subir_data():
@@ -101,7 +94,8 @@ def subir_data():
     table_name = "datos_base_clientes"
 
     # Ruta al archivo CSV
-    csv_file_path = "C:\\Users\\cvanegas\\Desktop\\Datos Gyt\\Prueba tecnica BAM\\Prueba\\datos_base_clientes.csv"
+    ## ESTA RUTA SE DEBE MODIFICAR SEGUN EL QEUIPO EN DONDE ESTE, EL ARCHIVO ESTA EN documentos/datos_base_clientes.csv
+    csv_file_path = "C:\\Users\\cvanegas\\PATH\\datos_base_clientes.csv"
 
     # Subir datos a DynamoDB
     result = upload_data_to_dynamodb(table_name, csv_file_path)
@@ -109,7 +103,6 @@ def subir_data():
     if result["status"] == "success":
         return result["message"]
     else:
-        # Aquí puedes elegir cómo manejar los errores, por ejemplo:
         return f"Error al subir datos: {result['message']}", 400
 
 
